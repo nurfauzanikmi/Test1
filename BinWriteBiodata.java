@@ -5,7 +5,6 @@
  */
 package printbiodata;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -52,29 +51,23 @@ public class BinWriteBiodata {
                 byte[] emailInBytes = email.getBytes();
                 byte[] phoneInBytes = phone.getBytes();
                 
-                os.write("Name\t:".getBytes());
                 os.write(nameInBytes);
                 os.write(System.getProperty("line.separator").getBytes());
-                os.write("Matrix No\t:".getBytes());
                 os.write(matrixInBytes);
                 os.write(System.getProperty("line.separator").getBytes());
-                os.write("Gender\t:".getBytes());
                 os.write(genderInBytes);
                 os.write(System.getProperty("line.separator").getBytes());
-                os.write("Age\t:".getBytes());
                 os.write(ageInBytes);
                 os.write(System.getProperty("line.separator").getBytes());
-                os.write("Emails\t:".getBytes());
                 os.write(emailInBytes);
                 os.write(System.getProperty("line.separator").getBytes());
-                os.write("Mobile Phone\t:".getBytes());
                 os.write(phoneInBytes);
-                
+
                 os.flush();
                 os.close();
-           
+                
                 int totalBytes = (nameInBytes.length + matrixInBytes.length + genderInBytes.length 
-                        + ageInBytes.length + emailInBytes.length + phoneInBytes.length);            
+                        + ageInBytes.length + emailInBytes.length + phoneInBytes.length);      
                 System.out.println("\nBinary File Written...");
                 System.out.println("Wrote " + totalBytes + 
                 " bytes");
